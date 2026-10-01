@@ -44,6 +44,7 @@ const presetElements = [
 // ========================================
 
 let intervalId;
+let endTime;  /********** */
 let running = false;
 let mode = "pomodoro";
 let pomodoroCount = 0;
@@ -84,6 +85,19 @@ function getFocusableElements(container) {
     );
 }
 
+function getValidDuration(input) {
+    const value = Number(input.value);
+
+    if (!Number.isFinite(value)) {
+        return Number(input.min);
+    }
+
+    return Math.min(
+        Math.max(value, Number(input.min)),
+        Number(input.max)
+    );
+}
+
 // ========================================
 // Font & Appearance
 // ========================================
@@ -105,13 +119,16 @@ function updateActiveTab() {
         shortBreak: shortBreakBtn,
         longBreak: longBreakBtn
     };
-
+     const activeTab = activeMap[mode];
     tabs.forEach(tab => {
         const isActive = tab === activeMap[mode];
         tab.classList.toggle("active", isActive);
         tab.setAttribute("aria-selected", String(isActive));
         tab.setAttribute("tabindex", isActive ? "0" : "-1");
+
     });
+
+     timer.setAttribute("aria-labelledby", activeTab.id);
 }
 
 // ========================================
@@ -144,6 +161,8 @@ function changeMode(newMode, duration) {
 }
 
 function startTimer() {
+
+    endTime = Date.now() + timeLeft * 1000;  /********** */
     intervalId = setInterval(countdown, 1000);
 
     running = true;
@@ -187,7 +206,11 @@ function switchToNextMode() {
 }
 
 function countdown() {
-    timeLeft--;
+    //timeLeft--;
+    timeLeft = Math.max(
+    0,
+    Math.ceil((endTime - Date.now()) / 1000)
+);
     timer.textContent = formatTime(timeLeft);
     updateProgress();
 
@@ -259,9 +282,9 @@ function handleSettingsKeydown(event) {
 // Settings
 // ========================================
 function applySettings(){
-    const pomodoroTime   = Number(pomodoroInput.value);
-    const shortBreakTime = Number(shortBreakInput.value);
-    const longBreakTime  = Number(longBreakInput.value);
+    const pomodoroTime   =  getValidDuration(pomodoroInput);
+    const shortBreakTime =  getValidDuration(shortBreakInput);
+    const longBreakTime  =  getValidDuration(longBreakInput);
 
     const selectedFont  = document.querySelector('input[name="font"]:checked').value;
     const selectedColor = document.querySelector('input[name="color"]:checked').value;

@@ -1,5 +1,6 @@
 @use "../abstract/variables" as v;
 @use "../abstract/breakpoints" as b;
+@use "../abstract/mixins" as m;
 
 // ========================================
 // HEADER
@@ -25,9 +26,7 @@
 // ========================================
 
 .timer {
-   // padding-block-start : clamp( v.$spacing-600,10.5vw,v.$spacing-1000);
     padding-block       : v.$spacing-600;
-   // padding-block-end   : v.$spacing-600;
     margin-inline       : auto;
 
     display             : flex;
@@ -36,14 +35,13 @@
     justify-content     : center;
 
     gap                 : v.$spacing-1000;
-    width               : 18.75rem;
-
+    width               : v.$timer-size-sm;
+  
     @media(min-width:b.$bp-md)
     { 
-    gap                 : 9rem;
-    padding-block       : 6.75rem;
-   // padding-block-end   : 103px;
-    width               : 25.625rem;
+    gap                 : v.$spacing-1800;
+    padding-block       : v.$spacing-1350;
+    width               : v.$timer-size-md;
     }
 
     @media(min-width:b.$bp-xl)
@@ -59,8 +57,8 @@
 // ========================================
 
 .timer__display {
-    width         : 300px;
-    height        : 300px;
+    width         : v.$timer-size-sm;
+    height        : v.$timer-size-sm;
     box-sizing    : border-box;
 
     border        : 1rem solid transparent;
@@ -79,10 +77,9 @@
 
     @media(min-width:b.$bp-md)
     {
-    width         : 410px;
-    height        : 410px;
+    width           : v.$timer-size-md;
+    height          : v.$timer-size-md;
     border        : 1.375rem solid transparent;
-
     }
 }
 
@@ -97,8 +94,6 @@
 
     top           : 0;
     left          : 0;
-   // width         : 100%;
-   // height        : 100%;
     padding       : v.$spacing-125;
 
     display       : block;
@@ -124,8 +119,6 @@
     {
     stroke-width  :  0.6875rem;
     }
-  //  width        : 100%;
-  //  height       : 100%;
 }
 
 // Background track
@@ -135,16 +128,13 @@
 
 // Cyan progress
 .timer__progress-bar {
-    stroke           : v.$color-cyan;
+    stroke           : var(--accent-color);
     
     // Rounded ends
     stroke-linecap   : round;
 
-    /*  Circle circumference:  2 × π × 115 ≈ 722.6 */
-    stroke-dasharray : 722.6;
-
-    /* 75% progress */
-    stroke-dashoffset: 180.65;
+    stroke-dasharray: 816.81;
+    stroke-dashoffset: 0;
 }
 
 
@@ -156,9 +146,6 @@
     position         : relative;
     z-index          : 1;
     
-    //width            : 193px;
-    //height           : 124px;
-
     border-radius    : 50%;
     background-color : v.$color-blue-900;
 
@@ -171,8 +158,6 @@
 
     @media(min-width:b.$bp-md)
     {
-   // width           : 260px;
-    //height          : 158px;
     gap              : v.$spacing-100;
     }
 }
@@ -182,6 +167,7 @@
 
 .timer__status {
     color            : v.$primary-txt-clr ;
+    
 }
 
 // ========================================
@@ -191,4 +177,15 @@
 .timer__settings{
     width            : 1.6875rem;
     height           : 1.75rem;
+}
+
+
+
+.timer__status:focus-visible {
+    @include m.focus-ring;
+}
+
+.timer__settings-btn:focus-visible {
+    @include m.focus-ring;
+    border-radius: 50%; // ring hugs the circular button
 }

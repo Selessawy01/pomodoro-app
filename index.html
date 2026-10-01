@@ -27,7 +27,7 @@
    <header class="header">
     <div class="header__container">
       <h1 class="visually-hidden">Pomodoro Timer</h1>
-      <img class="header__logo" src="./assets/logo.svg">
+      <img class="header__logo" src="./assets/logo.svg" alt="Pomodoro Timer Logo">
       <div class="header__tabs preset3-txt-roboto" role="tablist" aria-label="Timer mode">
         <button type  = "button"  
                 role  = "tab"
@@ -56,7 +56,7 @@
     </div>
    </header>
    <main>
-    <section  id="timer-panel" class="timer">
+    <section  id="timer-panel" class="timer" role="tabpanel" aria-labelledby="pomodoro-tab">
       <div class="timer__display">
         <svg class="timer__progress-ring" viewBox="0 0 268 268">
             <circle class="timer__progress-background" cx="134" cy="134" r="130" />
@@ -81,7 +81,7 @@
       <div class="settings__header">
             <div class="settings__ctn">
               <h2 id="settings-heading" class="setting__heading preset1-settings-kumbh">Settings</h2>
-              <button class="settings__close-btn btn aria-label="Close settings"">
+              <button class="settings__close-btn btn" aria-label="Close settings"">
                   <img src="./assets/icon-close.svg" alt="">
               </button>
             </div>
@@ -93,7 +93,7 @@
           <div class="settings__time">
             <label for="pomodoro" class="preset4-settings-kumbh">Pomodoro</label>
               <div class="settings__input">
-                <input type="number" id="pomodoro" name="pomodoro" value="25" min="1" class="preset3-txt-kumbh">
+                <input type="number" id="pomodoro" name="pomodoro" value="25" min="1" max="60" class="preset3-txt-kumbh">
                 <div class="settings__input-arrows">
                     <button type="button" class="settings__arrow settings__arrow-up" aria-label="Increase pomodoro minutes">
                       <img src="./assets/icon-arrow-up.svg" alt="">
@@ -108,12 +108,12 @@
           <div class="settings__time">
             <label for="short-break" class="preset4-settings-kumbh">short break</label>
               <div class="settings__input">
-                <input type="number" id="short-break" name="short-break" value="5" min="1" class="preset3-txt-kumbh">
+                <input type="number" id="short-break" name="short-break" value="5" min="1" max="60" class="preset3-txt-kumbh">
                 <div class="settings__input-arrows">
-                    <button type="button" class="settings__arrow settings__arrow-up" aria-label="Increase pomodoro minutes">
+                    <button type="button" class="settings__arrow settings__arrow-up" aria-label="Increase short break minutes">
                       <img src="./assets/icon-arrow-up.svg" alt="">
                     </button>
-                    <button type="button" class="settings__arrow settings__arrow-down" aria-label="Decrease pomodoro minutes">
+                    <button type="button" class="settings__arrow settings__arrow-down" aria-label="Decrease short break minutes">
                       <img src="./assets/icon-arrow-down.svg" alt="">
                     </button>
                 </div>
@@ -123,12 +123,12 @@
           <div class="settings__time">
             <label for="long-break" class="preset4-settings-kumbh">long break</label>
               <div class="settings__input">
-                <input type="number" id="long-break" name="long-break" value="15" min="1" class="preset3-txt-kumbh">
+                <input type="number" id="long-break" name="long-break" value="15" min="1" max="60" class="preset3-txt-kumbh">
                 <div class="settings__input-arrows">
-                    <button type="button" class="settings__arrow settings__arrow-up" aria-label="Increase pomodoro minutes">
+                    <button type="button" class="settings__arrow settings__arrow-up" aria-label="Increase long break minutes">
                       <img src="./assets/icon-arrow-up.svg" alt="">
                     </button>
-                    <button type="button" class="settings__arrow settings__arrow-down" aria-label="Decrease pomodoro minutes">
+                    <button type="button" class="settings__arrow settings__arrow-down" aria-label="Decrease long break minutes">
                       <img src="./assets/icon-arrow-down.svg" alt="">
                     </button>
                 </div>
@@ -153,7 +153,7 @@
 
           <label  class="settings__font-label">
             <input type="radio" name="font" value="spacemono">
-            <span class="settings__font-btn preset2-settings-spacemon" aria-hidden="true">Aa</span>
+            <span class="settings__font-btn preset2-settings-spacemono" aria-hidden="true">Aa</span>
             <span class="visually-hidden">Space-mono</span>
         </label>
 
