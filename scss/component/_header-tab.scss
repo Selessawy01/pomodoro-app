@@ -1,0 +1,26 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+
+.btn {
+    border        : none;
+    background    : none;
+    cursor        : pointer;
+    
+}
+.header__tab {
+    color         : v.$primary-txt-clr;
+    width         : clamp(6.5625rem,25vw,7.5rem);
+    height        : 3rem;
+}
+
+.header__tab.active 
+{
+    background-color: var(--accent-color); 
+    border-radius   : 26.5px;
+    color           : v.$black;
+}
+
+.header__tab:focus-visible {
+    @include m.focus-ring;
+}

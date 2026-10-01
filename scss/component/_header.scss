@@ -1,0 +1,26 @@
+@use "../abstract/variables" as v;
+@use "../abstract/breakpoints" as b;
+
+.header {
+    padding-block-start : clamp(v.$spacing-400, 10.5vw, v.$spacing-1000);
+    margin-inline       : auto;
+  
+    @media (min-width: b.$bp-xl) {
+    padding-block-start: v.$spacing-600;
+    }
+}
+
+
+.header__container {
+    width               : min(20.625rem, 100%);
+    margin-inline       : auto;
+    display             : flex;
+    flex-direction      : column;
+    justify-content     : center;
+    align-items         : center;
+    gap: clamp(v.$spacing-500, 6.3vw, v.$spacing-700);
+ 
+    @media(min-width: b.$bp-md) {
+    width               : 23.75rem;
+    }
+}

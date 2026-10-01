@@ -1,0 +1,274 @@
+@use "../abstract/variables"   as v;
+@use "../abstract/breakpoints" as b;
+@use "../abstract/mixins" as m;
+@use "sass:color";
+
+
+.settings {
+    width   : 20.4375rem;
+    margin  : 1.5rem auto 5rem;
+
+    background-color : v.$white;
+    border-radius    : 1.5625rem;
+
+    @media (min-width: b.$bp-md) {
+        position  : fixed;
+        top       : 50%;
+        left      : 50%;
+        transform : translate(-50%, -50%);
+
+        width     : 33.75rem;
+        margin    : 0;
+    }
+}
+
+.settings__ctn{
+    display             : flex;
+    align-items         : center;
+    justify-content     : space-between;
+}
+
+.settings__header {
+    width               : 100%;
+    padding-block       : 1rem;
+    padding-inline      : v.$spacing-300;
+    border-bottom       : 1px solid v.$color-grey-200;
+
+    @media(min-width: b.$bp-md) {
+    padding-inline      : 2.25rem;
+    padding-block       :  v.$spacing-400;
+    }
+}
+form {
+    border:none;
+}
+
+.settings__form{
+    width               : 100%;
+    padding-inline      : v.$spacing-300;
+    padding-block-start : v.$spacing-200;
+    position            : relative;
+
+    @media(min-width:b.$bp-md){
+
+    padding-inline      : v.$spacing-400;
+    padding-block-start : v.$spacing-400;
+    }
+}
+.settings__times legend{
+    
+    width               : 100%;
+    text-align          : center;
+    padding-bottom      : v.$spacing-200;
+    color               : v.$color-blue-850;
+    
+    @media(min-width: b.$bp-md) {
+    
+    text-align          :start;
+    }
+}
+
+fieldset {
+    border  : none;
+    padding : 0 0 v.$spacing-300;
+}
+
+fieldset:not(:last-of-type){
+    border-bottom       : 1px solid v.$color-grey-200;
+}
+
+.settings__times {
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+    gap             : v.$spacing-100;
+
+    @media(min-width:b.$bp-md){
+    flex-direction  : row;
+    gap             : v.$spacing-300;
+    }
+}
+
+.settings__time{
+    display         : flex;
+    align-items     : center;
+    justify-content : space-between;
+    width           : 100%;
+
+    @media(min-width:b.$bp-md){
+    flex-direction  : column;
+    align-items     : flex-start ;
+    gap             : v.$spacing-100;
+    }
+}
+
+.settings__input {
+    position        : relative;
+}
+
+.settings__times input{
+    
+    width            : 8.75rem;
+    height           : 2.5rem;
+    border           : none;
+    border-radius    : 0.625rem;
+    background-color : v.$color-blue-50;
+    color            : v.$color-blue-850;
+  
+    display          : flex;
+    align-items      : center;
+    justify-content  : space-between;
+    padding          : v.$spacing-200;
+}
+
+
+.settings__time label{
+     color: color.change(v.$color-blue-850, $alpha: 0.4);
+}
+
+.settings__input-arrows {
+    position        : absolute;
+ 
+    top             : 50%;
+    right           : 1rem;
+
+   transform       : translateY(-50%);
+
+    display         : flex;
+    flex-direction  : column;
+    gap             : 0.5rem;
+}
+
+.settings__arrow {
+    padding         : 0;
+    border          : 0;
+    background      : transparent;
+    cursor          : pointer;
+}
+
+.settings__arrow img {
+    display         : block;
+}
+
+.settings__color,
+.settings__font {
+    display             : flex;
+    flex-direction      : column;
+    justify-content     : center;
+    align-items         : center;
+    width               : 100%;
+    gap                 : v.$spacing-100;
+    margin-block-start  : v.$spacing-300;
+
+    @media(min-width: b.$bp-md) {
+  
+    flex-direction      : row;
+    justify-content     : space-between;
+    align-items         : center;
+    }
+}
+
+.settings__color{
+    padding-bottom: v.$spacing-600;
+}
+
+.settings__font input,
+.settings__color input {
+
+    position            : absolute;
+    opacity             : 0;
+}
+
+.settings__font-btn,
+.settings__color-btn {
+    width  : v.$swatch-size;
+    height : v.$swatch-size;
+}
+
+.settings__font-btn{
+   
+    border-radius   : 50%;
+    
+    border          : none;
+    position        : relative;
+    cursor          : pointer;
+
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+
+    color               : v.$color-blue-850;
+    background-color    : v.$color-blue-50;
+}
+
+.settings__font-label input:checked + .settings__font-btn {
+    background-color  : v.$color-blue-900;
+    color             : v.$white;
+}
+
+.settings__font-label:hover .settings__font-btn {
+    background-color : v.$color-blue-900;
+    color            : v.$white;
+}
+
+
+.settings__color-btn{
+    border-radius       : 50%;
+    display             : block;
+    position            : relative;
+    border              : none;
+    cursor              : pointer;
+}
+.settings__color input:checked + .settings__color-btn::after{
+    content             :  "✓";
+    position            : absolute;
+    inset               : 0;
+    display             : grid;
+    place-items         : center;
+    color               : v.$black;
+    font-size           : 1.5rem;
+}
+
+.btn-red{
+    background-color    : v.$color-red;
+}
+.btn-cyan{
+    background-color    : v.$color-cyan;
+}
+.btn-purple{
+    background-color    : v.$color-purple;
+}
+
+.settings__font-options,
+.settings__color-options {
+    display             : flex;
+    justify-content     : center;
+    gap                 : v.$spacing-200;
+    height              : auto;
+}
+
+.settings__submit{
+
+    position            : absolute;
+    
+    left                : 50%;
+    bottom              : 0;
+    transform           : translate(-50%, 50%);
+    width               : 8.75rem;
+    height              : 3.3125rem;
+    background-color    : var(--accent-color);
+    color               : v.$white;
+    border-radius       : 1.665rem;
+}
+
+.settings__close-btn:focus-visible,
+.settings__arrow:focus-visible,
+.settings__submit:focus-visible {
+    @include m.focus-ring;
+}
+
+.settings__font-label input:focus-visible + .settings__font-btn,
+.settings__color-label input:focus-visible + .settings__color-btn {
+    @include m.focus-ring;
+}

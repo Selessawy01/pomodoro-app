@@ -1,0 +1,190 @@
+@use "../abstract/variables" as v;
+@use "../abstract/breakpoints" as b;
+@use "../abstract/mixins" as m;
+
+// ========================================
+// HEADER
+// ========================================
+.header__logo {
+    height           : clamp(1.875rem, 5.3vw, 2.5rem);
+}
+
+.header__tabs {
+    background-color  : v.$tabs-bg-clr;
+    border-radius     : 1.97rem;
+    width             : 100%;
+    height            : 3.9375rem;
+
+    display           : flex;
+    align-items       : center;
+    justify-content   : center;
+    color             : v.$primary-txt-clr;
+}
+
+// ========================================
+// TIMER
+// ========================================
+
+.timer {
+    padding-block       : v.$spacing-600;
+    margin-inline       : auto;
+
+    display             : flex;
+    flex-direction      : column;
+    align-items         : center;
+    justify-content     : center;
+
+    gap                 : v.$spacing-1000;
+    width               : v.$timer-size-sm;
+  
+    @media(min-width:b.$bp-md)
+    { 
+    gap                 : v.$spacing-1800;
+    padding-block       : v.$spacing-1350;
+    width               : v.$timer-size-md;
+    }
+
+    @media(min-width:b.$bp-xl)
+    {
+    gap                 : v.$spacing-800;
+    padding-block-start : v.$spacing-500;
+    padding-block-end   : v.$spacing-700;
+    }
+}
+
+// ========================================
+// OUTER TIMER
+// ========================================
+
+.timer__display {
+    width         : v.$timer-size-sm;
+    height        : v.$timer-size-sm;
+    box-sizing    : border-box;
+
+    border        : 1rem solid transparent;
+    border-radius : 50%;
+
+    background    : linear-gradient( v.$color-blue-900, v.$color-blue-900) padding-box,
+                    v.$gradient-border border-box;
+
+    box-shadow    : -20px -20px 40px rgba(255, 255, 255, 0.1),
+                     20px 20px 40px rgba(0, 0, 0, 0.4);
+
+    position      : relative;
+
+    display       : grid;
+    place-items   : center;
+
+    @media(min-width:b.$bp-md)
+    {
+    width           : v.$timer-size-md;
+    height          : v.$timer-size-md;
+    border        : 1.375rem solid transparent;
+    }
+}
+
+// ========================================
+// SVG
+// ========================================
+
+.timer__progress-ring {
+
+    box-sizing    : border-box;
+    position      : absolute;
+
+    top           : 0;
+    left          : 0;
+    padding       : v.$spacing-125;
+
+    display       : block;
+    transform     : rotate(-90deg);
+    overflow      : visible;
+
+    @media(min-width:b.$bp-md)
+    {
+    padding       : v.$spacing-150; 
+    }
+}
+
+// ========================================
+// PROGRESS CIRCLES
+// ========================================
+
+.timer__progress-background,
+.timer__progress-bar {
+    fill          : none;
+    stroke-width  : 0.5rem;
+
+    @media(min-width:b.$bp-md)
+    {
+    stroke-width  :  0.6875rem;
+    }
+}
+
+// Background track
+.timer__progress-background {
+    stroke           : v.$color-blue-900;
+}
+
+// Cyan progress
+.timer__progress-bar {
+    stroke           : var(--accent-color);
+    
+    // Rounded ends
+    stroke-linecap   : round;
+
+    stroke-dasharray: 816.81;
+    stroke-dashoffset: 0;
+}
+
+
+// ========================================
+// CENTER
+// ========================================
+
+.timer__time {
+    position         : relative;
+    z-index          : 1;
+    
+    border-radius    : 50%;
+    background-color : v.$color-blue-900;
+
+    display          : flex;
+    flex-direction   : column;
+    align-items      : center;
+    justify-content  : center;
+    color            : v.$primary-txt-clr;
+   
+
+    @media(min-width:b.$bp-md)
+    {
+    gap              : v.$spacing-100;
+    }
+}
+// ========================================
+// RESTART
+// ========================================
+
+.timer__status {
+    color            : v.$primary-txt-clr ;
+}
+
+// ========================================
+// Timer Settings
+// ========================================
+
+.timer__settings{
+    width            : 1.6875rem;
+    height           : 1.75rem;
+}
+
+
+
+.timer__status:focus-visible {
+    @include m.focus-ring;
+}
+
+.timer__settings-btn:focus-visible {
+    @include m.focus-ring;
+    border-radius: 50%; // ring hugs the circular button
+}

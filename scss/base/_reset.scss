@@ -1,0 +1,25 @@
+@use "../abstract/variables" as v;
+
+*, *::after, *::before {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+img {   
+    display   : block;
+    max-width : 100%;  
+    height    : auto;
+}
+
+button,
+input,
+textarea,
+select {
+    font  : inherit;
+}
+body {
+    background-color: v.$bg-clr;
+}
+
+

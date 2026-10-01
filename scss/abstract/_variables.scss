@@ -1,0 +1,103 @@
+// ==============================
+// Colors
+// ==============================
+
+$white    : #FFFFFF;
+$black    : #000000;
+
+$color-blue-950  : #14172E;
+$color-blue-900  : #161932;
+$color-blue-850  : #1E213F;
+$color-blue-100  : #D7E0FF;
+$color-blue-50   : #EFF1FA;
+
+$color-grey-400  : #BBBDCB;
+$color-grey-200  : #E4E2E2;
+
+$color-cyan      : #70F3F8;
+$color-red       : #F87070;
+$color-purple    : #D881F8;
+
+
+
+
+// ==============================
+// Gradients
+// ==============================
+
+//$gradient : linear-gradient(-130deg, #2E325A, #0E112A);
+$gradient-border : linear-gradient(100deg, #0E112A 30%, #2E325A 100%);
+
+$overlay-gradient: linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 0.84) 100%
+);
+
+
+// ==============================
+// Spacing
+// ==============================
+
+$spacing-0   : 0rem;
+$spacing-100 : 0.5rem;     // 8px
+$spacing-125 : 0.625rem;   // 10px
+$spacing-150 : 0.75rem;    // 12px
+$spacing-200 : 1rem;       // 16px
+$spacing-300 : 1.5rem;     // 24px
+$spacing-400 : 2rem;       // 32px
+$spacing-500 : 2.5rem;     // 40px
+$spacing-600 : 3rem;       // 48px
+$spacing-700 : 3.5rem;     // 56px
+$spacing-800 : 4rem;       // 64px
+$spacing-900 : 4.5rem;     // 72px;
+$spacing-1000: 5rem;       // 80px
+$spacing-1200: 6rem;       // 96px
+$spacing-1350: 6.75rem;     //108px;
+$spacing-1400: 7rem;       // 112px
+$spacing-1600: 8rem;        // 128px
+$spacing-1800: 9rem;        // 144px
+
+
+
+
+// ==============================
+// Typography
+// ==============================
+
+// Font Families
+$ff-space-mon   : "Space Mono", monospace;
+$ff-roboto      : "Roboto Slab", serif;
+$ff-kumbh       : "Kumbh Sans", sans-serif;
+
+// Font sizes
+$fs-11:  0.6875rem;  // 11px
+$fs-12:  0.75rem;    // 12px
+$fs-13:  0.8125rem;  // 13px
+$fs-14:  0.875rem;   // 14px
+$fs-16:  1rem;       // 16px
+$fs-28:  1.75rem;    // 28px
+$fs-80:  5rem;       // 80px
+$fs-100: 6.25rem;    // 100px
+
+$fw-bold      : 700;
+$fw-regular   : 400;
+
+
+
+// ==============================
+// Semantic tokens
+// ==============================
+
+$bg-clr          : $color-blue-850;
+$tabs-bg-clr     : $color-blue-900;
+
+$primary-txt-clr : $color-blue-100;
+
+// ========================================
+// COMPONENT SIZES
+// ========================================
+$timer-size-sm  : 18.75rem;
+$timer-size-md  : 25.625rem;
+$swatch-size    : 2.5rem;
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+      
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap" rel="stylesheet">
+            
+              <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+                  
+                  
+                    <link rel="preconnect" href="https://fonts.googleapis.com">
+                      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+                        
+                           <link rel="stylesheet" href="css/style.css">
+                             
+                               <title>Frontend Mentor | Pomodoro app</title>
+</head>
+<body>
+   <header class="header">
+    <div class="header__container">
+      <h1 class="visually-hidden">Pomodoro Timer</h1>
+      <img class="header__logo" src="./assets/logo.svg">
+      <div class="header__tabs preset3-txt-roboto" role="tablist" aria-label="Timer mode">
+        <button type  = "button"  
+                role  = "tab"
+                id    = "tab-pomodoro"
+                aria-selected = "true"
+                aria-controls = "timer-panel"
+                tabindex      = "0"
+                class         = "header__tab  pomodoro-btn btn active">pomodoro </button>
+       
+        <button type  = "button"
+                role  = "tab"
+                id    = "tab-short-break"
+                aria-selected = "false"
+                aria-controls = "timer-panel"
+                tabindex      = "-1"
+                class="header__tab  short-break-btn btn">short break</button>
+        
+        <button type  = "button" 
+                role  = "tab"
+                id    = "tab-long-break"
+                aria-selected = "false"
+                aria-controls = "timer-panel"
+                tabindex      = "-1"
+              class           = "header__tab  long-break-btn btn">long break</button>
+      </div>
+    </div>
+   </header>
+   <main>
+    <section  id="timer-panel" class="timer">
+      <div class="timer__display">
+        <svg class="timer__progress-ring" viewBox="0 0 268 268">
+            <circle class="timer__progress-background" cx="134" cy="134" r="130" />
+            <circle class="timer__progress-bar" cx="134" cy="134" r="130" />
+        </svg>   
+         <div class="timer__time">
+          <p class="timer__action preset1-txt-roboto">00:00</p>
+          <button class="timer__status btn uppercase preset2-txt-roboto">start</button>
+         </div>
+      </div>
+      
+      <div id="timer-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+      <div class="timer__settings">
+        <button class="timer__settings-btn btn" aria-label="Open settings">
+          <img src="./assets/icon-settings.svg" alt="">
+        </button>
+      </div>
+    </section>
+
+     <section class="settings hidden" role="dialog" aria-modal="true" aria-labelledby="settings-heading">
+      <div class="settings__header">
+            <div class="settings__ctn">
+              <h2 id="settings-heading" class="setting__heading preset1-settings-kumbh">Settings</h2>
+              <button class="settings__close-btn btn aria-label="Close settings"">
+                  <img src="./assets/icon-close.svg" alt="">
+              </button>
+            </div>
+      </div>
+      
+      <form class="settings__form">
+        <fieldset class="settings__times">
+        <legend class="preset3-settings-kumbh">Time (minutes)</legend>
+          <div class="settings__time">
+            <label for="pomodoro" class="preset4-settings-kumbh">Pomodoro</label>
+              <div class="settings__input">
+                <input type="number" id="pomodoro" name="pomodoro" value="25" min="1" class="preset3-txt-kumbh">
+                <div class="settings__input-arrows">
+                    <button type="button" class="settings__arrow settings__arrow-up" aria-label="Increase pomodoro minutes">
+                      <img src="./assets/icon-arrow-up.svg" alt="">
+                    </button>
+                    <button type="button" class="settings__arrow settings__arrow-down" aria-label="Decrease pomodoro minutes">
+                      <img src="./assets/icon-arrow-down.svg" alt="">
+                    </button>
+                </div>
+              </div>
+          </div>
+
+          <div class="settings__time">
+            <label for="short-break" class="preset4-settings-kumbh">short break</label>
+              <div class="settings__input">
+                <input type="number" id="short-break" name="short-break" value="5" min="1" class="preset3-txt-kumbh">
+                <div class="settings__input-arrows">
+                    <button type="button" class="settings__arrow settings__arrow-up" aria-label="Increase pomodoro minutes">
+                      <img src="./assets/icon-arrow-up.svg" alt="">
+                    </button>
+                    <button type="button" class="settings__arrow settings__arrow-down" aria-label="Decrease pomodoro minutes">
+                      <img src="./assets/icon-arrow-down.svg" alt="">
+                    </button>
+                </div>
+              </div>
+          </div>
+
+          <div class="settings__time">
+            <label for="long-break" class="preset4-settings-kumbh">long break</label>
+              <div class="settings__input">
+                <input type="number" id="long-break" name="long-break" value="15" min="1" class="preset3-txt-kumbh">
+                <div class="settings__input-arrows">
+                    <button type="button" class="settings__arrow settings__arrow-up" aria-label="Increase pomodoro minutes">
+                      <img src="./assets/icon-arrow-up.svg" alt="">
+                    </button>
+                    <button type="button" class="settings__arrow settings__arrow-down" aria-label="Decrease pomodoro minutes">
+                      <img src="./assets/icon-arrow-down.svg" alt="">
+                    </button>
+                </div>
+              </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="settings__font">
+        <p class=" settings__label preset3-settings-kumbh uppercase">font</p>
+          <div class="settings__font-options">
+        <label  class="settings__font-label">
+            <input type="radio" name="font" value="kumbh" checked>
+            <span class="settings__font-btn preset2-settings-kumbh" aria-hidden="true">Aa</span>
+            <span class="visually-hidden">Kumbh Sans</span>
+        </label>
+
+        <label  class="settings__font-label">
+            <input type="radio" name="font" value="roboto">
+            <span class="settings__font-btn preset2-settings-roboto" aria-hidden="true" >Aa</span>
+            <span class="visually-hidden">Roboto</span>
+        </label>
+
+          <label  class="settings__font-label">
+            <input type="radio" name="font" value="spacemono">
+            <span class="settings__font-btn preset2-settings-spacemon" aria-hidden="true">Aa</span>
+            <span class="visually-hidden">Space-mono</span>
+        </label>
+
+        </div>
+        </fieldset>
+              
+        <fieldset class="settings__color">
+          <p class="settings__label preset3-settings-kumbh uppercase">Colors</p>
+          <div class="settings__color-options">
+            <label class="settings__color-label">
+              <input type="radio" name="color" id="color-red" value="red" checked>
+              <span class="settings__color-btn btn-red"></span>
+              <span class="visually-hidden">Red</span>
+            </label>
+            <label class="settings__color-label">
+              <input type="radio" name="color" id="color-cyan" value="cyan">
+              <span class="settings__color-btn btn-cyan"></span>
+              <span class="visually-hidden">Cyan</span>
+            </label>
+            <label class="settings__color-label">
+              <input type="radio" name="color" id="color-purple" value="purple">
+              <span class="settings__color-btn btn-purple"></span>
+              <span class="visually-hidden">Purple</span>
+            </label>
+          </div>
+        </fieldset>
+                         
+        <button class="settings__submit btn" type="submit"> Apply </button>
+      </form>
+    </section>
+  </main>
+  <script src="index.js"></script>
+</body>
+                                                                      

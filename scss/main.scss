@@ -1,0 +1,39 @@
+@use "./abstract/variables" as v;
+@use "./abstract/breakpoints" as b;
+@use "./abstract/mixins";
+
+@use "./base/utilities";
+@use "./base/reset";
+@use "./base/typography";
+
+@use "./component/header-tab";
+@use "./component/header";
+
+@use "./pages/promodoro";
+@use "./pages/settings";
+
+:root {
+    --accent-color :  #{v.$color-red};
+    --font-family  :  #{v.$ff-kumbh};
+}
+
+.kumbh {
+    --font-family: #{v.$ff-kumbh};
+}
+.roboto {
+    --font-family: #{v.$ff-roboto};
+}
+.spacemono {
+    --font-family: #{v.$ff-space-mon};
+}
+
+.color-red{
+    --accent-color : #{v.$color-red};
+}
+.color-purple {
+    --accent-color: #{v.$color-purple};
+}
+.color-cyan {
+    --accent-color : #{v.$color-cyan};
+}
+
