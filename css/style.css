@@ -587,6 +587,23 @@ fieldset:not(:last-of-type) {
   }
 }
 
+.settings__font-row,
+.settings__color-row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+@media (min-width: 48rem) {
+  .settings__font-row,
+  .settings__color-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
 .settings__color {
   padding-bottom: 3rem;
 }

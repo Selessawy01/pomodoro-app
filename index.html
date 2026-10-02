@@ -56,7 +56,7 @@
     </div>
    </header>
    <main>
-    <section  id="timer-panel" class="timer" role="tabpanel" aria-labelledby="pomodoro-tab">
+    <section  id="timer-panel" class="timer" role="tabpanel" aria-labelledby="tab-pomodoro">
       <div class="timer__display">
         <svg class="timer__progress-ring" viewBox="0 0 268 268">
             <circle class="timer__progress-background" cx="134" cy="134" r="130" />
@@ -137,13 +137,14 @@
         </fieldset>
 
         <fieldset class="settings__font">
-        <p class=" settings__label preset3-settings-kumbh uppercase">font</p>
+        <div class="settings__font-row">
+          <legend class=" settings__label preset3-settings-kumbh uppercase">font</legend>
           <div class="settings__font-options">
-        <label  class="settings__font-label">
-            <input type="radio" name="font" value="kumbh" checked>
-            <span class="settings__font-btn preset2-settings-kumbh" aria-hidden="true">Aa</span>
-            <span class="visually-hidden">Kumbh Sans</span>
-        </label>
+               <label  class="settings__font-label">
+                  <input type="radio" name="font" value="kumbh" checked>
+                  <span class="settings__font-btn preset2-settings-kumbh" aria-hidden="true">Aa</span>
+                 <span class="visually-hidden">Kumbh Sans</span>
+               </label>
 
         <label  class="settings__font-label">
             <input type="radio" name="font" value="roboto">
@@ -157,11 +158,13 @@
             <span class="visually-hidden">Space-mono</span>
         </label>
 
+          </div>
         </div>
         </fieldset>
               
         <fieldset class="settings__color">
-          <p class="settings__label preset3-settings-kumbh uppercase">Colors</p>
+        <div class="settings__color-row">
+          <legend class="settings__label preset3-settings-kumbh uppercase">Colors</legend>
           <div class="settings__color-options">
             <label class="settings__color-label">
               <input type="radio" name="color" id="color-red" value="red" checked>
@@ -179,6 +182,7 @@
               <span class="visually-hidden">Purple</span>
             </label>
           </div>
+        </div>
         </fieldset>
                          
         <button class="settings__submit btn" type="submit"> Apply </button>

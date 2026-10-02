@@ -168,6 +168,21 @@ fieldset:not(:last-of-type){
     align-items         : center;
     }
 }
+.settings__font-row,
+.settings__color-row {
+    width           : 100%;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    gap             : v.$spacing-200;
+
+    @media(min-width: b.$bp-md) {
+    flex-direction  : row;
+    align-items     : center;
+    justify-content : space-between;
+}
+}
+
 
 .settings__color{
     padding-bottom: v.$spacing-600;

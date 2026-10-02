@@ -119,7 +119,9 @@ function updateActiveTab() {
         shortBreak: shortBreakBtn,
         longBreak: longBreakBtn
     };
-     const activeTab = activeMap[mode];
+    
+    const activeTab = activeMap[mode];
+
     tabs.forEach(tab => {
         const isActive = tab === activeMap[mode];
         tab.classList.toggle("active", isActive);
@@ -170,6 +172,11 @@ function startTimer() {
 }
 
 function pauseTimer() {
+
+     timeLeft = Math.max(
+        0,
+        Math.ceil((endTime - Date.now()) / 1000)
+    );
     clearInterval(intervalId);
 
     running = false;
@@ -239,10 +246,15 @@ function openSettings() {
     settingsSection.classList.remove("hidden");
 
     const heading = settingsSection.querySelector(".setting__heading");
-    if (heading) {
+   /* if (heading) {
         heading.setAttribute("tabindex", "-1");
         heading.focus();
-    }
+    }*/
+   if (event.shiftKey && document.activeElement === heading) {
+    event.preventDefault();
+    focusable[focusable.length - 1].focus();
+    return;
+   }
 }
 
 function closeSettings() {
