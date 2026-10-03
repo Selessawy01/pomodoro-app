@@ -44,6 +44,7 @@ const presetElements = [
 // ========================================
 
 let intervalId;
+let timeoutId;
 let endTime;  /********** */
 let running = false;
 let mode = "pomodoro";
@@ -149,6 +150,7 @@ function updateProgress() {
 
 function changeMode(newMode, duration) {
     clearInterval(intervalId);
+     clearTimeout(timeoutId);
 
     mode      = newMode;
     timeLeft  = duration;
@@ -163,6 +165,8 @@ function changeMode(newMode, duration) {
 }
 
 function startTimer() {
+    
+    clearTimeout(timeoutId);
 
     endTime = Date.now() + timeLeft * 1000;  /********** */
     intervalId = setInterval(countdown, 1000);
@@ -172,7 +176,7 @@ function startTimer() {
 }
 
 function pauseTimer() {
-
+      clearTimeout(timeoutId);
      timeLeft = Math.max(
         0,
         Math.ceil((endTime - Date.now()) / 1000)
@@ -227,7 +231,7 @@ function countdown() {
     running=false;
     startBtn.textContent = "start";
 
-    setTimeout(() => {
+   timeoutId = setTimeout(() => {
         switchToNextMode();
         startTimer();
         }, 1000);
@@ -244,17 +248,18 @@ function openSettings() {
     pomodoroHeader.classList.add("hidden");
     pomodoroSection.classList.add("hidden");
     settingsSection.classList.remove("hidden");
+    settingsCloseBtn.focus();
 
-    const heading = settingsSection.querySelector(".setting__heading");
+   // const heading = settingsSection.querySelector(".setting__heading");
    /* if (heading) {
         heading.setAttribute("tabindex", "-1");
         heading.focus();
     }*/
-   if (event.shiftKey && document.activeElement === heading) {
+   /*if (event.shiftKey && document.activeElement === heading) {
     event.preventDefault();
     focusable[focusable.length - 1].focus();
     return;
-   }
+   }*/
 }
 
 function closeSettings() {

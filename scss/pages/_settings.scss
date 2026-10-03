@@ -5,7 +5,8 @@
 
 
 .settings {
-    width   : 20.4375rem;
+   // width   : 20.4375rem;
+    width : min(20.4375rem, 100%);
     margin  : 1.5rem auto 5rem;
 
     background-color : v.$white;
@@ -151,8 +152,9 @@ fieldset:not(:last-of-type){
     display         : block;
 }
 
-.settings__color,
-.settings__font {
+
+.settings__font,
+.settings__color {
     display             : flex;
     flex-direction      : column;
     justify-content     : center;
@@ -161,28 +163,18 @@ fieldset:not(:last-of-type){
     gap                 : v.$spacing-100;
     margin-block-start  : v.$spacing-300;
 
-    @media(min-width: b.$bp-md) {
-  
-    flex-direction      : row;
-    justify-content     : space-between;
-    align-items         : center;
-    }
-}
-.settings__font-row,
-.settings__color-row {
-    width           : 100%;
-    display         : flex;
-    flex-direction  : column;
-    align-items     : center;
-    gap             : v.$spacing-200;
-
-    @media(min-width: b.$bp-md) {
-    flex-direction  : row;
-    align-items     : center;
-    justify-content : space-between;
-}
+  @media(min-width: b.$bp-md) {
+  display               : grid;
+  grid-template-columns : 1fr 1fr;  
+  align-items           : center;
+  }
 }
 
+.settings__font legend,
+.settings__color legend  {
+  float        : left;        /* makes the legend participate in the grid as a normal item */
+  grid-column  : 1;
+}
 
 .settings__color{
     padding-bottom: v.$spacing-600;
@@ -257,8 +249,9 @@ fieldset:not(:last-of-type){
 
 .settings__font-options,
 .settings__color-options {
+    grid-column         : 2;
     display             : flex;
-    justify-content     : center;
+    justify-self        : end;
     gap                 : v.$spacing-200;
     height              : auto;
 }
