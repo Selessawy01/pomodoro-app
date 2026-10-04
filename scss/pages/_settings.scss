@@ -172,7 +172,7 @@ fieldset:not(:last-of-type){
 
 .settings__font legend,
 .settings__color legend  {
-  float        : left;        /* makes the legend participate in the grid as a normal item */
+  float        : left;       
   grid-column  : 1;
 }
 

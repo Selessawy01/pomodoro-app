@@ -56,6 +56,14 @@
 } 
 
 /*** Settings ***/
+.settings-kumbh {
+ // font-family    :var(--font-family);
+ font-family    : v.$ff-kumbh;
+  font-size      : v.$fs-16;
+  font-weight    : v.$fw-bold;
+  line-height    : 125%;
+  letter-spacing : 0px;
+}
 .preset1-settings-kumbh {
   font-family    : var(--font-family);
   font-size      : v.$fs-28;
@@ -65,7 +73,8 @@
 }
 
 .preset2-settings-kumbh {
-  font-family    :var(--font-family);
+font-family    :var(--font-family);
+ // font-family    : v.$ff-kumbh;
   font-size      : v.$fs-16;
   font-weight    : v.$fw-bold;
   line-height    : 125%;
@@ -139,8 +148,18 @@
   }
 }
 
-.preset2-settings-roboto {
+.preset1-settings-roboto {
   font-family    : var(--font-family);
+// font-family    : v.$ff-roboto;
+  font-size      : v.$fs-16;
+  font-weight    : v.$fw-regular;
+  line-height    : 125%;
+  letter-spacing : 0px;
+}
+
+.settings-roboto {
+ // font-family    : var(--font-family);
+ font-family    : v.$ff-roboto;
   font-size      : v.$fs-16;
   font-weight    : v.$fw-regular;
   line-height    : 125%;
@@ -188,9 +207,19 @@
   line-height    : 140%;
   }
 }
-
-.preset2-settings-spacemono {
+.preset1-settings-spacemono {
   font-family    :var(--font-family);
+ //font-family    : v.$ff-space-mon;
+  font-size      : v.$fs-16;
+  font-weight    : v.$fw-bold;
+  line-height    : 125%;
+  letter-spacing : 0px;
+}
+
+
+.settings-spacemono {
+ // font-family    :var(--font-family);
+ font-family    : v.$ff-space-mon;
   font-size      : v.$fs-16;
   font-weight    : v.$fw-bold;
   line-height    : 125%;

@@ -249,17 +249,6 @@ function openSettings() {
     pomodoroSection.classList.add("hidden");
     settingsSection.classList.remove("hidden");
     settingsCloseBtn.focus();
-
-   // const heading = settingsSection.querySelector(".setting__heading");
-   /* if (heading) {
-        heading.setAttribute("tabindex", "-1");
-        heading.focus();
-    }*/
-   /*if (event.shiftKey && document.activeElement === heading) {
-    event.preventDefault();
-    focusable[focusable.length - 1].focus();
-    return;
-   }*/
 }
 
 function closeSettings() {

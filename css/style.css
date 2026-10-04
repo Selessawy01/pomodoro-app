@@ -93,6 +93,14 @@ body {
 }
 
 /*** Settings ***/
+.settings-kumbh {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 125%;
+  letter-spacing: 0px;
+}
+
 .preset1-settings-kumbh {
   font-family: var(--font-family);
   font-size: 1.75rem;
@@ -176,8 +184,16 @@ body {
   }
 }
 
-.preset2-settings-roboto {
+.preset1-settings-roboto {
   font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 125%;
+  letter-spacing: 0px;
+}
+
+.settings-roboto {
+  font-family: "Roboto Slab", serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 125%;
@@ -228,8 +244,16 @@ body {
   }
 }
 
-.preset2-settings-spacemono {
+.preset1-settings-spacemono {
   font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 125%;
+  letter-spacing: 0px;
+}
+
+.settings-spacemono {
+  font-family: "Space Mono", monospace;
   font-size: 1rem;
   font-weight: 700;
   line-height: 125%;
